@@ -1,0 +1,74 @@
+:root {
+  --paper: #eef0e6;      /* cal de pared */
+  --surface: #fbfbf6;
+  --ink: #1b2233;        /* tinta de añil oscura */
+  --indigo: #24387a;     /* añil, el tinte histórico del país */
+  --indigo-soft: #dfe4f3;
+  --coffee: #a3243b;     /* cereza de café, acento puntual */
+  --muted: #5b6275;
+  --radius: 6px;
+}
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+h1, h2, h3, .brand { font-family: var(--font-display), system-ui, sans-serif; line-height: 1.1; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--coffee); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.site-header {
+  display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;
+  padding: 1rem clamp(1rem, 5vw, 4rem); background: var(--indigo); color: #fff;
+}
+.brand { font-size: 1.4rem; font-weight: 800; text-decoration: none; }
+.site-header nav { display: flex; gap: 1.5rem; }
+.site-header nav a { text-decoration: none; opacity: .9; }
+.site-header nav a:hover { text-decoration: underline; }
+
+.hero { padding: clamp(3rem, 9vw, 7rem) clamp(1rem, 5vw, 4rem); background: var(--indigo); color: #fff; }
+.hero h1 { font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 800; max-width: 14ch; letter-spacing: -0.03em; }
+.hero p { max-width: 55ch; margin-top: 1.5rem; font-size: 1.15rem; color: var(--indigo-soft); }
+.hero-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+.hero-links a, .button, button {
+  display: inline-block; padding: .7rem 1.2rem; border-radius: var(--radius);
+  background: var(--paper); color: var(--indigo); font: inherit; font-weight: 600;
+  text-decoration: none; border: 0; cursor: pointer;
+}
+.hero-links a:hover, .button:hover, button:hover { background: #fff; }
+
+.section { padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 5vw, 4rem); }
+.section h1, .section h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 1.5rem; font-weight: 800; }
+.lead { font-size: 1.2rem; color: var(--muted); max-width: 60ch; margin-bottom: 2rem; }
+
+.grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.card { display: block; background: var(--surface); border-radius: var(--radius); overflow: hidden; text-decoration: none; border: 1px solid #d9dccd; }
+.card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: var(--indigo-soft); }
+.card-body { padding: 1.1rem 1.2rem 1.4rem; }
+.card h3 { font-size: 1.3rem; margin: .25rem 0 .5rem; }
+.card p { color: var(--muted); font-size: .95rem; }
+.card .card-meta { color: var(--coffee); font-weight: 600; font-size: .85rem; }
+.card:hover h3 { text-decoration: underline; text-decoration-color: var(--coffee); text-underline-offset: 4px; }
+
+.detail-hero img { width: 100%; max-height: 60vh; object-fit: cover; display: block; }
+.detail { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.25rem; }
+.detail h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; margin: 1rem 0; }
+.back { color: var(--indigo); font-weight: 600; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin: 1.5rem 0 2rem; padding: 1.2rem; background: var(--indigo-soft); border-radius: var(--radius); }
+.facts dt { font-size: .85rem; color: var(--muted); }
+.facts dd { font-weight: 700; margin: 0; }
+
+.state { text-align: center; min-height: 50vh; display: grid; place-content: center; gap: 1rem; justify-items: center; }
+.state button, .state .button { background: var(--indigo); color: #fff; }
+
+.skeleton { background: linear-gradient(90deg, #dfe2d3 25%, #eceee2 50%, #dfe2d3 75%); background-size: 200% 100%; border-radius: var(--radius); animation: shimmer 1.4s infinite; }
+.skeleton-title { height: 3rem; width: min(400px, 80%); margin-bottom: 1.5rem; }
+.skeleton-card { height: 320px; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } html { scroll-behavior: auto; } }
+
+.site-footer { padding: 2rem clamp(1rem, 5vw, 4rem); color: var(--muted); font-size: .9rem; border-top: 1px solid #d3d6c6; }
